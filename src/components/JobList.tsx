@@ -2,12 +2,13 @@ import React from 'react';
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table/interface';
 
-const columns: ColumnProps<{
+interface ColumnProp {
   key: string;
   name: string;
   age: number;
   address: string;
-}>[] = [
+}
+const columns: ColumnProps<ColumnProp>[] = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -35,8 +36,6 @@ const columns: ColumnProps<{
         ],
       },
     ],
-    // specify the condition of filtering result
-    // here is that finding the name started with `value`
     onFilter: (value, record) => record.name.indexOf(value) === 0,
     sorter: (a, b) => a.name.length - b.name.length,
     sortDirections: ['descend'],
@@ -73,7 +72,6 @@ interface Job {
   age: number;
   address: string;
 }
-
 const data: Job[] = [
   {
     key: '1',
@@ -106,9 +104,7 @@ const onChange = (pagination: any, filters: any, sorter: any, extra: any) => {
 }
 
 const JobList: React.FC = () => {
-  return (
-    <Table columns={columns} dataSource={data} onChange={onChange} />
-  );
+  return <Table columns={columns} dataSource={data} onChange={onChange} size="middle" />;
 }
 
 export default JobList;
