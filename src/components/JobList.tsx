@@ -1,6 +1,6 @@
-import React from "react";
-import { Table } from "antd";
-import { ColumnProps } from "antd/lib/table/interface";
+import React from 'react';
+import { Table } from 'antd';
+import { ColumnProps } from 'antd/lib/table/interface';
 
 interface ColumnProp {
   key: string;
@@ -10,60 +10,60 @@ interface ColumnProp {
 }
 const columns: ColumnProps<ColumnProp>[] = [
   {
-    title: "Name",
-    dataIndex: "name",
+    title: 'Name',
+    dataIndex: 'name',
     filters: [
       {
-        text: "Joe",
-        value: "Joe"
+        text: 'Joe',
+        value: 'Joe',
       },
       {
-        text: "Jim",
-        value: "Jim"
+        text: 'Jim',
+        value: 'Jim',
       },
       {
-        text: "Submenu",
-        value: "Submenu",
+        text: 'Submenu',
+        value: 'Submenu',
         children: [
           {
-            text: "Green",
-            value: "Green"
+            text: 'Green',
+            value: 'Green',
           },
           {
-            text: "Black",
-            value: "Black"
-          }
-        ]
-      }
+            text: 'Black',
+            value: 'Black',
+          },
+        ],
+      },
     ],
     onFilter: (value, record) => record.name.indexOf(value) === 0,
     sorter: (a, b) => a.name.length - b.name.length,
-    sortDirections: ["descend"]
+    sortDirections: ['descend'],
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    defaultSortOrder: "descend",
-    sorter: (a, b) => a.age - b.age
+    title: 'Age',
+    dataIndex: 'age',
+    defaultSortOrder: 'descend',
+    sorter: (a, b) => a.age - b.age,
   },
   {
-    title: "Address",
-    dataIndex: "address",
+    title: 'Address',
+    dataIndex: 'address',
     filters: [
       {
-        text: "London",
-        value: "London"
+        text: 'London',
+        value: 'London',
       },
       {
-        text: "New York",
-        value: "New York"
-      }
+        text: 'New York',
+        value: 'New York',
+      },
     ],
     filterMultiple: false,
     onFilter: (value, record) => record.address.indexOf(value) === 0,
     sorter: (a, b) => a.address.length - b.address.length,
-    sortDirections: ["descend", "ascend"]
-  }
+    sortDirections: ['descend', 'ascend'],
+  },
 ];
 
 interface Job {
@@ -74,33 +74,33 @@ interface Job {
 }
 const data: Job[] = [
   {
-    key: "1",
-    name: "John Brown",
+    key: '1',
+    name: 'John Brown',
     age: 32,
-    address: "New York No. 1 Lake Park"
+    address: 'New York No. 1 Lake Park',
   },
   {
-    key: "2",
-    name: "Jim Green",
+    key: '2',
+    name: 'Jim Green',
     age: 42,
-    address: "London No. 1 Lake Park"
+    address: 'London No. 1 Lake Park',
   },
   {
-    key: "3",
-    name: "Joe Black",
+    key: '3',
+    name: 'Joe Black',
     age: 32,
-    address: "Sidney No. 1 Lake Park"
+    address: 'Sidney No. 1 Lake Park',
   },
   {
-    key: "4",
-    name: "Jim Red",
+    key: '4',
+    name: 'Jim Red',
     age: 32,
-    address: "London No. 2 Lake Park"
-  }
+    address: 'London No. 2 Lake Park',
+  },
 ];
 
 const onChange = (pagination: any, filters: any, sorter: any, extra: any) => {
-  console.log("params", pagination, filters, sorter, extra);
+  console.log('params', pagination, filters, sorter, extra);
 };
 
 const JobList: React.FC = () => {

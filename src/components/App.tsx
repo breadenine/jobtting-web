@@ -1,31 +1,26 @@
-import React from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
-import Home from "./Home";
+import React from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
+import Home from './Home';
 
 const { Header, Content } = Layout;
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Layout className="layout" style={{ background: "#fff" }}>
-        <Header style={{ padding: "0 2rem", background: "#fff" }}>
+      <Layout className="layout" style={{ background: '#fff' }}>
+        <Header style={{ padding: '0 2rem', background: '#fff' }}>
           <div
             className="logo"
             style={{
-              width: "120px",
-              background: "rgba(255, 255, 255, 0.2)",
-              float: "left"
+              width: '120px',
+              background: 'rgba(255, 255, 255, 0.2)',
+              float: 'left',
             }}
           >
             잡팅
           </div>
-          <Menu
-            theme="light"
-            mode="horizontal"
-            defaultSelectedKeys={["1"]}
-            style={{ lineHeight: "64px" }}
-          >
+          <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} style={{ lineHeight: '64px' }}>
             <Menu.Item key="1">
               <Link to="/">목록</Link>
             </Menu.Item>
@@ -35,10 +30,10 @@ const App: React.FC = () => {
         </Header>
         <Content
           style={{
-            display: "flex",
-            flexDirection: "column",
-            flex: "1",
-            padding: "2rem"
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '1',
+            padding: '2rem',
           }}
         >
           <Switch>
@@ -48,6 +43,6 @@ const App: React.FC = () => {
       </Layout>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
