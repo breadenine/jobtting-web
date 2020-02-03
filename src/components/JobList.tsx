@@ -106,12 +106,7 @@ const onChange = (pagination: any, filters: any, sorter: any, extra: any) => {
 const JobList: React.FC = () => {
   return (
     <>
-      <Table
-        columns={columns}
-        dataSource={data}
-        onChange={onChange}
-        size="middle"
-      />
+      <Table columns={columns} dataSource={data} onChange={onChange} size="middle" />
     </>
   );
 };

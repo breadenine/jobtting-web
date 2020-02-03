@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import Home from './Home';
 
 const { Header, Content } = Layout;
 
+const useInput = (init: string = 'ABCD') => {
+  const [value, setValue] = useState(init);
+  const onChange = (e: any) => {
+    setValue(e.target.value);
+  };
+  return { value, onChange };
+};
+
 const App: React.FC = () => {
+  const name = useInput('이경환');
   return (
     <BrowserRouter>
       <Layout className="layout" style={{ background: '#fff' }}>
         <Header style={{ padding: '0 2rem', background: '#fff' }}>
+          {JSON.stringify({ ...name })}
+          <input type="text" {...name} />
           <div
             className="logo"
             style={{
