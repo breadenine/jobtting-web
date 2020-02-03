@@ -32,6 +32,7 @@
     "less-loader": "^5.0.0",
     "react-app-rewired": "^2.1.5",
     "react-scripts": "3.3.0",
+    "tslint": "^6.0.0",
     "tslint-config-airbnb": "^5.11.2",
     "typescript": "~3.7.2"
   },
