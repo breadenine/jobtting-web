@@ -1,59 +1,50 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
-import Home from './Home';
-
-const { Header, Content } = Layout;
-
-// const useInput = (init: string = 'ABCD') => {
-//   const [value, setValue] = useState(init);
-//   const onChange = (e: any) => {
-//     setValue(e.target.value);
-//   };
-//   return { value, onChange };
-// };
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Layout } from 'antd';
+import styled from 'styled-components';
+import Home from '../containers/Home';
+import JobCreate from '../containers/JobCreate';
+import JtHeader from './base/JtHeader';
 
 const App = () => {
-  // const name = useInput('이경환');
   return (
     <BrowserRouter>
-      <Layout className="layout" style={{ background: '#fff' }}>
-        <Header style={{ padding: '0 2rem', background: '#fff' }}>
-          {/* {JSON.stringify({ ...name })}
-          <input type="text" {...name} /> */}
-          <div
-            className="logo"
-            style={{
-              width: '120px',
-              background: 'rgba(255, 255, 255, 0.2)',
-              float: 'left',
-            }}
-          >
-            잡팅
+      <JtLayout className="layout">
+        <JtHeader />
+        <Content>
+          <div className="main">
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/create" exact component={JobCreate} />
+            </Switch>
           </div>
-          <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} style={{ lineHeight: '64px' }}>
-            <Menu.Item key="1">
-              <Link to="/">목록</Link>
-            </Menu.Item>
-            <Menu.Item key="2">메뉴 2</Menu.Item>
-            <Menu.Item key="3">메뉴 3</Menu.Item>
-          </Menu>
-        </Header>
-        <Content
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '1',
-            padding: '2rem',
-          }}
-        >
-          <Switch>
-            <Route to="/" exact component={Home} />
-          </Switch>
         </Content>
-      </Layout>
+      </JtLayout>
     </BrowserRouter>
   );
 };
+
+const JtLayout = styled(Layout)`
+  background: #fff;
+`;
+const Content = styled(Layout.Content)`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1200px) {
+    align-items: center;
+
+    .main {
+      width: 1200px;
+    }
+  }
+`;
 
 export default App;
